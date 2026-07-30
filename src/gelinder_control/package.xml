@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>gelinder_control</name>
+  <version>0.1.0</version>
+  <description>
+    Locomotion mode nodes for the Gelinder reconfigurable rolling-crawling
+    robot: transform_to_roll (fold all 12 joints into the wheel shape) and
+    roll_forward / roll_left / roll_right / roll_center (continuous wheel
+    spin once folded). Each mode is a standalone node runnable with
+    `ros2 run gelinder_control &lt;node_name&gt;`, so no manual
+    `ros2 action send_goal` / `ros2 topic pub` is needed.
+  </description>
+
+  <maintainer email="syuntoku14@todo.todo">syuntoku14</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>control_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>controller_manager_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>builtin_interfaces</depend>
+
+  <exec_depend>gelinder_description</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

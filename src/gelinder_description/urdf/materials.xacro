@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Defined once at the top level so every <material name="silver"/>
+       reference further down the URDF resolves to this color. -->
+  <material name="silver">
+    <color rgba="0.700 0.700 0.700 1.000"/>
+  </material>
+
+</robot>

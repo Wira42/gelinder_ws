@@ -1,0 +1,98 @@
+# ros2_control / controller_manager configuration for the Gelinder robot.
+#
+# Loaded by the gz_ros2_control Gazebo plugin (see urdf/gelinder.gazebo.xacro)
+# through the <parameters> tag, and also usable with a real / mock hardware
+# interface by passing this same file to ros2_control_node.
+#
+# Four controllers are provided. Only one of gelinder_arm_controller /
+# gelinder_position_controller / gelinder_velocity_controller can be active
+# at a time, because they all claim the same joints' command interfaces.
+# The gelinder_control package's mode nodes handle switching between them
+# automatically -- see src/gelinder_control/README.md.
+#
+#   - joint_state_broadcaster: publishes /joint_states (required by
+#     robot_state_publisher / RViz to show the live TF tree). Always active.
+#   - gelinder_arm_controller: a JointTrajectoryController driving all 12
+#     continuous joints to target POSITIONS along a smooth trajectory.
+#     Used by transform_to_roll to fold the legs into the wheel shape
+#     (all joints -> 0 rad).
+#   - gelinder_velocity_controller: a JointGroupVelocityController driving
+#     all 12 joints by target VELOCITY (rad/s), for continuous wheel
+#     spinning once already in the rolling/wheel shape. Used by
+#     roll_forward / roll_left / roll_right.
+#   - gelinder_position_controller: simple JointGroupPositionController,
+#     inactive by default, kept around for ad-hoc manual testing with
+#     `ros2 topic pub .../commands`.
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    gelinder_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    gelinder_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+    gelinder_position_controller:
+      type: position_controllers/JointGroupPositionController
+
+gelinder_arm_controller:
+  ros__parameters:
+    joints:
+      - A0
+      - A1
+      - A2
+      - B0
+      - B1
+      - B2
+      - C0
+      - C1
+      - C2
+      - D0
+      - D1
+      - D2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+
+gelinder_velocity_controller:
+  ros__parameters:
+    joints:
+      - A0
+      - A1
+      - A2
+      - B0
+      - B1
+      - B2
+      - C0
+      - C1
+      - C2
+      - D0
+      - D1
+      - D2
+    interface_name: velocity
+
+gelinder_position_controller:
+  ros__parameters:
+    joints:
+      - A0
+      - A1
+      - A2
+      - B0
+      - B1
+      - B2
+      - C0
+      - C1
+      - C2
+      - D0
+      - D1
+      - D2
+    interface_name: position

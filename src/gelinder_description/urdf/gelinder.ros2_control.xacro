@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<robot name="Gelinder" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ===================================================================
+       ros2_control hardware description.
+
+       Hardware plugin: gz_ros2_control/GazeboSimSystem
+         -> this tells ros2_control to get/set joint states through the
+            gz_ros2_control Gazebo Fortress plugin (declared in
+            gelinder.gazebo.xacro) instead of real hardware.
+
+       Every joint exposes a position command interface (so a
+       position_controllers/JointGroupPositionController or a
+       joint_trajectory_controller can drive it) plus position/velocity
+       state interfaces for feedback. All 12 joints are "continuous" in
+       the URDF (no travel limit), which matches a wheel/roller-style
+       joint used for the rolling-locomotion mode of this robot.
+       =================================================================== -->
+
+  <xacro:macro name="gelinder_ros2_control_joint" params="joint_name">
+    <joint name="${joint_name}">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </xacro:macro>
+
+  <ros2_control name="GazeboSimSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+
+    <xacro:gelinder_ros2_control_joint joint_name="A0"/>
+    <xacro:gelinder_ros2_control_joint joint_name="A1"/>
+    <xacro:gelinder_ros2_control_joint joint_name="A2"/>
+
+    <xacro:gelinder_ros2_control_joint joint_name="B0"/>
+    <xacro:gelinder_ros2_control_joint joint_name="B1"/>
+    <xacro:gelinder_ros2_control_joint joint_name="B2"/>
+
+    <xacro:gelinder_ros2_control_joint joint_name="C0"/>
+    <xacro:gelinder_ros2_control_joint joint_name="C1"/>
+    <xacro:gelinder_ros2_control_joint joint_name="C2"/>
+
+    <xacro:gelinder_ros2_control_joint joint_name="D0"/>
+    <xacro:gelinder_ros2_control_joint joint_name="D1"/>
+    <xacro:gelinder_ros2_control_joint joint_name="D2"/>
+  </ros2_control>
+
+</robot>

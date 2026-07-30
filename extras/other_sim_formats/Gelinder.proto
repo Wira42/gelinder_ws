@@ -1,0 +1,681 @@
+#VRML_SIM R2025a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the Gelinder
+# Extracted from: C:\Users\fikri\Documents\gelinder_urdf\Gelinder_description\urdf\Gelinder.urdf
+
+PROTO Gelinder [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "Gelinder"  # Is `Robot.name`.
+  field  SFString    controller      "void"      # Is `Robot.controller`.
+  field  MFString    controllerArgs  []          # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""          # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE       # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE        # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE       # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Transform {
+        scale 0.001000 0.001000 0.001000
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.500000 0.500000 0.500000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF base_link Mesh {
+              url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/base_link.stl"
+            }
+          }
+        ]
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -0.000000 -1.000000
+          anchor 0.026975 0.056276 0.009495
+        }
+        device [
+          RotationalMotor {
+            name "A0"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "A0_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.026975 0.056276 0.009495
+          children [
+            Transform {
+              translation -0.026975 -0.056276 -0.009495
+              scale 0.001000 0.001000 0.001000
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF arm_a_0_1 Mesh {
+                    url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_a_0_1.stl"
+                  }
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 1.000000 -0.000000
+                anchor 0.048600 0.015850 -0.009712
+              }
+              device [
+                RotationalMotor {
+                  name "A1"
+                  maxTorque 10000
+                }
+                PositionSensor {
+                  name "A1_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.048600 0.015850 -0.009712
+                children [
+                  Transform {
+                    translation -0.075575 -0.072126 0.000217
+                    scale 0.001000 0.001000 0.001000
+                    children [
+                      Shape {
+                        appearance PBRAppearance {
+                          baseColor 0.500000 0.500000 0.500000
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF arm_a_1_1 Mesh {
+                          url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_a_1_1.stl"
+                        }
+                      }
+                    ]
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis -0.000000 0.000000 1.000000
+                      anchor 0.000011 -0.015897 -0.028202
+                    }
+                    device [
+                      RotationalMotor {
+                        name "A2"
+                        maxTorque 10000
+                      }
+                      PositionSensor {
+                        name "A2_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0.000011 -0.015897 -0.028202
+                      children [
+                        Transform {
+                          translation -0.075586 -0.056229 0.028419
+                          scale 0.001000 0.001000 0.001000
+                          children [
+                            Shape {
+                              appearance PBRAppearance {
+                                baseColor 0.500000 0.500000 0.500000
+                                roughness 1.000000
+                                metalness 0
+                              }
+                              geometry DEF arm_a_2_1 Mesh {
+                                url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_a_2_1.stl"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                      name "arm_a_2_1"
+                      boundingObject Pose {
+                        translation -0.075586 -0.056229 0.028419
+                        children [
+                          USE arm_a_2_1
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.097785
+                        centerOfMass [ -0.039673 0.002359 -0.025566 ]
+                        inertiaMatrix [
+                          7.300000e-05 4.260000e-04 3.660000e-04
+                          -1.400000e-05 -4.200000e-05 -4.000000e-06
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "arm_a_1_1"
+                boundingObject Pose {
+                  translation -0.075575 -0.072126 0.000217
+                  children [
+                    USE arm_a_1_1
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.020020
+                  centerOfMass [ -0.000331 -0.013990 -0.008332 ]
+                  inertiaMatrix [
+                    1.000000e-05 5.000000e-06 6.000000e-06
+                    0.000000e+00 0.000000e+00 0.000000e+00
+                  ]
+                }
+              }
+            }
+          ]
+          name "arm_a_0_1"
+          boundingObject Pose {
+            translation -0.026975 -0.056276 -0.009495
+            children [
+              USE arm_a_0_1
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.028203
+            centerOfMass [ 0.027907 0.001675 -0.010821 ]
+            inertiaMatrix [
+              2.000000e-06 1.100000e-05 1.100000e-05
+              -0.000000e+00 -1.000000e-06 -0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 -0.000000 1.000000
+          anchor 0.026975 -0.056276 0.009495
+        }
+        device [
+          RotationalMotor {
+            name "B0"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "B0_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.026975 -0.056276 0.009495
+          children [
+            Transform {
+              translation -0.026975 0.056276 -0.009495
+              scale 0.001000 0.001000 0.001000
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF arm_b_0_1 Mesh {
+                    url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_b_0_1.stl"
+                  }
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 1.000000 0.000000
+                anchor 0.042800 -0.015850 -0.009712
+              }
+              device [
+                RotationalMotor {
+                  name "B1"
+                  maxTorque 10000
+                }
+                PositionSensor {
+                  name "B1_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.042800 -0.015850 -0.009712
+                children [
+                  Transform {
+                    translation -0.069775 0.072126 0.000217
+                    scale 0.001000 0.001000 0.001000
+                    children [
+                      Shape {
+                        appearance PBRAppearance {
+                          baseColor 0.500000 0.500000 0.500000
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF arm_b_1_1 Mesh {
+                          url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_b_1_1.stl"
+                        }
+                      }
+                    ]
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 0.000000 -1.000000
+                      anchor 0.000011 0.015897 -0.028202
+                    }
+                    device [
+                      RotationalMotor {
+                        name "B2"
+                        maxTorque 10000
+                      }
+                      PositionSensor {
+                        name "B2_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0.000011 0.015897 -0.028202
+                      children [
+                        Transform {
+                          translation -0.069786 0.056229 0.028419
+                          scale 0.001000 0.001000 0.001000
+                          children [
+                            Shape {
+                              appearance PBRAppearance {
+                                baseColor 0.500000 0.500000 0.500000
+                                roughness 1.000000
+                                metalness 0
+                              }
+                              geometry DEF arm_b_2_1 Mesh {
+                                url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_b_2_1.stl"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                      name "arm_b_2_1"
+                      boundingObject Pose {
+                        translation -0.069786 0.056229 0.028419
+                        children [
+                          USE arm_b_2_1
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.097785
+                        centerOfMass [ -0.039673 -0.002359 -0.025566 ]
+                        inertiaMatrix [
+                          7.300000e-05 4.260000e-04 3.660000e-04
+                          1.400000e-05 -4.200000e-05 4.000000e-06
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "arm_b_1_1"
+                boundingObject Pose {
+                  translation -0.069775 0.072126 0.000217
+                  children [
+                    USE arm_b_1_1
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.020020
+                  centerOfMass [ -0.000331 0.013990 -0.008332 ]
+                  inertiaMatrix [
+                    1.000000e-05 5.000000e-06 6.000000e-06
+                    -0.000000e+00 0.000000e+00 -0.000000e+00
+                  ]
+                }
+              }
+            }
+          ]
+          name "arm_b_0_1"
+          boundingObject Pose {
+            translation -0.026975 0.056276 -0.009495
+            children [
+              USE arm_b_0_1
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.028203
+            centerOfMass [ 0.022107 -0.001675 -0.010821 ]
+            inertiaMatrix [
+              2.000000e-06 1.100000e-05 1.100000e-05
+              0.000000e+00 -1.000000e-06 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 0.000000 1.000000
+          anchor -0.026975 0.056276 0.009495
+        }
+        device [
+          RotationalMotor {
+            name "C0"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "C0_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.026975 0.056276 0.009495
+          children [
+            Transform {
+              translation 0.026975 -0.056276 -0.009495
+              scale 0.001000 0.001000 0.001000
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF arm_c_0_1 Mesh {
+                    url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_c_0_1.stl"
+                  }
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 -1.000000 0.000000
+                anchor -0.042800 0.015850 -0.009712
+              }
+              device [
+                RotationalMotor {
+                  name "C1"
+                  maxTorque 10000
+                }
+                PositionSensor {
+                  name "C1_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation -0.042800 0.015850 -0.009712
+                children [
+                  Transform {
+                    translation 0.069775 -0.072126 0.000217
+                    scale 0.001000 0.001000 0.001000
+                    children [
+                      Shape {
+                        appearance PBRAppearance {
+                          baseColor 0.500000 0.500000 0.500000
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF arm_c_1_1 Mesh {
+                          url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_c_1_1.stl"
+                        }
+                      }
+                    ]
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 0.000000 1.000000
+                      anchor 0.000010 -0.015897 0.028202
+                    }
+                    device [
+                      RotationalMotor {
+                        name "C2"
+                        maxTorque 10000
+                      }
+                      PositionSensor {
+                        name "C2_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0.000010 -0.015897 0.028202
+                      children [
+                        Transform {
+                          translation 0.069765 -0.056229 -0.027985
+                          scale 0.001000 0.001000 0.001000
+                          children [
+                            Shape {
+                              appearance PBRAppearance {
+                                baseColor 0.500000 0.500000 0.500000
+                                roughness 1.000000
+                                metalness 0
+                              }
+                              geometry DEF arm_c_2_1 Mesh {
+                                url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_c_2_1.stl"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                      name "arm_c_2_1"
+                      boundingObject Pose {
+                        translation 0.069765 -0.056229 -0.027985
+                        children [
+                          USE arm_c_2_1
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.097785
+                        centerOfMass [ 0.039674 -0.002360 0.025567 ]
+                        inertiaMatrix [
+                          7.300000e-05 4.260000e-04 3.660000e-04
+                          -1.400000e-05 -4.200000e-05 -4.000000e-06
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "arm_c_1_1"
+                boundingObject Pose {
+                  translation 0.069775 -0.072126 0.000217
+                  children [
+                    USE arm_c_1_1
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.020020
+                  centerOfMass [ -0.000331 -0.013990 0.008332 ]
+                  inertiaMatrix [
+                    1.000000e-05 5.000000e-06 6.000000e-06
+                    0.000000e+00 -0.000000e+00 -0.000000e+00
+                  ]
+                }
+              }
+            }
+          ]
+          name "arm_c_0_1"
+          boundingObject Pose {
+            translation 0.026975 -0.056276 -0.009495
+            children [
+              USE arm_c_0_1
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.028203
+            centerOfMass [ -0.022107 0.001675 -0.010821 ]
+            inertiaMatrix [
+              2.000000e-06 1.100000e-05 1.100000e-05
+              0.000000e+00 1.000000e-06 -0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 0.000000 -1.000000
+          anchor -0.026975 -0.056276 0.009495
+        }
+        device [
+          RotationalMotor {
+            name "D0"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "D0_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.026975 -0.056276 0.009495
+          children [
+            Transform {
+              translation 0.026975 0.056276 -0.009495
+              scale 0.001000 0.001000 0.001000
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF arm_d_0_1 Mesh {
+                    url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_d_0_1.stl"
+                  }
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 -1.000000 -0.000000
+                anchor -0.042800 -0.015850 -0.009712
+              }
+              device [
+                RotationalMotor {
+                  name "D1"
+                  maxTorque 10000
+                }
+                PositionSensor {
+                  name "D1_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation -0.042800 -0.015850 -0.009712
+                children [
+                  Transform {
+                    translation 0.069775 0.072126 0.000217
+                    scale 0.001000 0.001000 0.001000
+                    children [
+                      Shape {
+                        appearance PBRAppearance {
+                          baseColor 0.500000 0.500000 0.500000
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF arm_d_1_1 Mesh {
+                          url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_d_1_1.stl"
+                        }
+                      }
+                    ]
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis -0.000000 0.000000 -1.000000
+                      anchor 0.000010 0.015897 0.028202
+                    }
+                    device [
+                      RotationalMotor {
+                        name "D2"
+                        maxTorque 10000
+                      }
+                      PositionSensor {
+                        name "D2_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0.000010 0.015897 0.028202
+                      children [
+                        Transform {
+                          translation 0.069765 0.056229 -0.027985
+                          scale 0.001000 0.001000 0.001000
+                          children [
+                            Shape {
+                              appearance PBRAppearance {
+                                baseColor 0.500000 0.500000 0.500000
+                                roughness 1.000000
+                                metalness 0
+                              }
+                              geometry DEF arm_d_2_1 Mesh {
+                                url "C:/Users/fikri/Documents/gelinder_urdf/Gelinder_description/meshes/arm_d_2_1.stl"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                      name "arm_d_2_1"
+                      boundingObject Pose {
+                        translation 0.069765 0.056229 -0.027985
+                        children [
+                          USE arm_d_2_1
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.097785
+                        centerOfMass [ 0.039674 0.002360 0.025567 ]
+                        inertiaMatrix [
+                          7.300000e-05 4.260000e-04 3.660000e-04
+                          1.400000e-05 -4.200000e-05 4.000000e-06
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "arm_d_1_1"
+                boundingObject Pose {
+                  translation 0.069775 0.072126 0.000217
+                  children [
+                    USE arm_d_1_1
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.020020
+                  centerOfMass [ -0.000331 0.013990 0.008332 ]
+                  inertiaMatrix [
+                    1.000000e-05 5.000000e-06 6.000000e-06
+                    -0.000000e+00 -0.000000e+00 0.000000e+00
+                  ]
+                }
+              }
+            }
+          ]
+          name "arm_d_0_1"
+          boundingObject Pose {
+            translation 0.026975 0.056276 -0.009495
+            children [
+              USE arm_d_0_1
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.028203
+            centerOfMass [ -0.022107 -0.001675 -0.010821 ]
+            inertiaMatrix [
+              2.000000e-06 1.100000e-05 1.100000e-05
+              -0.000000e+00 1.000000e-06 0.000000e+00
+            ]
+          }
+        }
+      }
+    ]
+    name IS name
+    boundingObject USE base_link
+    physics Physics {
+      density -1
+      mass 0.174574
+      centerOfMass [ -0.000000 -0.000051 -0.003944 ]
+      inertiaMatrix [
+        4.150000e-04 2.190000e-04 5.170000e-04
+        -0.000000e+00 -0.000000e+00 0.000000e+00
+      ]
+    }
+  }
+}

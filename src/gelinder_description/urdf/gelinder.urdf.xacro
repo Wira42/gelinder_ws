@@ -1,0 +1,364 @@
+<?xml version="1.0" ?>
+<robot name="Gelinder" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find gelinder_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find gelinder_description)/urdf/gelinder.gazebo.xacro" />
+<xacro:include filename="$(find gelinder_description)/urdf/gelinder.ros2_control.xacro" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-5.8056117089972774e-08 -5.060738295930749e-05 -0.003944451224627542" rpy="0 0 0"/>
+    <mass value="0.17457355739398212"/>
+    <inertia ixx="0.000415" iyy="0.000219" izz="0.000517" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_a_0_1">
+  <inertial>
+    <origin xyz="0.027907137204750257 0.0016748467673032424 -0.01082115037983439" rpy="0 0 0"/>
+    <mass value="0.028202657282117616"/>
+    <inertia ixx="2e-06" iyy="1.1e-05" izz="1.1e-05" ixy="-0.0" iyz="-0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.026975 -0.056276 -0.009495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_a_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.026975 -0.056276 -0.009495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_a_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_a_1_1">
+  <inertial>
+    <origin xyz="-0.00033056783673883483 -0.01398985852679175 -0.0083316720524025" rpy="0 0 0"/>
+    <mass value="0.020020156112587915"/>
+    <inertia ixx="1e-05" iyy="5e-06" izz="6e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.075575 -0.072126 0.000217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_a_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.075575 -0.072126 0.000217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_a_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_a_2_1">
+  <inertial>
+    <origin xyz="-0.03967347310504917 0.002358988559746311 -0.02556627009331447" rpy="0 0 0"/>
+    <mass value="0.09778545701466328"/>
+    <inertia ixx="7.3e-05" iyy="0.000426" izz="0.000366" ixy="-1.4e-05" iyz="-4e-06" ixz="-4.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.075586 -0.056229 0.028419" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_a_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.075586 -0.056229 0.028419" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_a_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_b_0_1">
+  <inertial>
+    <origin xyz="0.022107137204750278 -0.001674846767303291 -0.01082115037983438" rpy="0 0 0"/>
+    <mass value="0.028202657282117634"/>
+    <inertia ixx="2e-06" iyy="1.1e-05" izz="1.1e-05" ixy="0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.026975 0.056276 -0.009495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_b_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.026975 0.056276 -0.009495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_b_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_b_1_1">
+  <inertial>
+    <origin xyz="-0.00033056783673887646 0.01398985852679184 -0.008331672052402476" rpy="0 0 0"/>
+    <mass value="0.02002015611258792"/>
+    <inertia ixx="1e-05" iyy="5e-06" izz="6e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.069775 0.072126 0.000217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_b_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.069775 0.072126 0.000217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_b_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_b_2_1">
+  <inertial>
+    <origin xyz="-0.03967347310504907 -0.0023589885597462695 -0.02556627009331456" rpy="0 0 0"/>
+    <mass value="0.09778545701466337"/>
+    <inertia ixx="7.3e-05" iyy="0.000426" izz="0.000366" ixy="1.4e-05" iyz="4e-06" ixz="-4.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.069786 0.056229 0.028419" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_b_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.069786 0.056229 0.028419" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_b_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_c_0_1">
+  <inertial>
+    <origin xyz="-0.02210713720475313 0.001674846767301584 -0.010821150379829184" rpy="0 0 0"/>
+    <mass value="0.02820265728211762"/>
+    <inertia ixx="2e-06" iyy="1.1e-05" izz="1.1e-05" ixy="0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.026975 -0.056276 -0.009495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_c_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.026975 -0.056276 -0.009495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_c_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_c_1_1">
+  <inertial>
+    <origin xyz="-0.00033112661078475714 -0.013989858526793367 0.008332144234452691" rpy="0 0 0"/>
+    <mass value="0.020020156112587926"/>
+    <inertia ixx="1e-05" iyy="5e-06" izz="6e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.069775 -0.072126 0.000217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_c_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.069775 -0.072126 0.000217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_c_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_c_2_1">
+  <inertial>
+    <origin xyz="0.03967384480007545 -0.002359763454847383 0.02556674227536231" rpy="0 0 0"/>
+    <mass value="0.09778545701466348"/>
+    <inertia ixx="7.3e-05" iyy="0.000426" izz="0.000366" ixy="-1.4e-05" iyz="-4e-06" ixz="-4.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.069765 -0.056229 -0.027985" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_c_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.069765 -0.056229 -0.027985" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_c_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_d_0_1">
+  <inertial>
+    <origin xyz="-0.022107137204753123 -0.0016748467673016257 -0.010821150379829177" rpy="0 0 0"/>
+    <mass value="0.02820265728211762"/>
+    <inertia ixx="2e-06" iyy="1.1e-05" izz="1.1e-05" ixy="-0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.026975 0.056276 -0.009495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_d_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.026975 0.056276 -0.009495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_d_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_d_1_1">
+  <inertial>
+    <origin xyz="-0.00033112661078463224 0.013989858526793526 0.00833214423445272" rpy="0 0 0"/>
+    <mass value="0.020020156112587926"/>
+    <inertia ixx="1e-05" iyy="5e-06" izz="6e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.069775 0.072126 0.000217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_d_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.069775 0.072126 0.000217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_d_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_d_2_1">
+  <inertial>
+    <origin xyz="0.03967384480007531 0.002359763454847577 0.025566742275362198" rpy="0 0 0"/>
+    <mass value="0.09778545701466333"/>
+    <inertia ixx="7.3e-05" iyy="0.000426" izz="0.000366" ixy="1.4e-05" iyz="4e-06" ixz="-4.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.069765 0.056229 -0.027985" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_d_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.069765 0.056229 -0.027985" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gelinder_description/meshes/arm_d_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="A0" type="continuous">
+  <origin xyz="0.026975 0.056276 0.009495" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="arm_a_0_1"/>
+  <axis xyz="-0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="A1" type="continuous">
+  <origin xyz="0.0486 0.01585 -0.009712" rpy="0 0 0"/>
+  <parent link="arm_a_0_1"/>
+  <child link="arm_a_1_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="A2" type="continuous">
+  <origin xyz="1.1e-05 -0.015897 -0.028202" rpy="0 0 0"/>
+  <parent link="arm_a_1_1"/>
+  <child link="arm_a_2_1"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+</joint>
+
+<joint name="B0" type="continuous">
+  <origin xyz="0.026975 -0.056276 0.009495" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="arm_b_0_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="B1" type="continuous">
+  <origin xyz="0.0428 -0.01585 -0.009712" rpy="0 0 0"/>
+  <parent link="arm_b_0_1"/>
+  <child link="arm_b_1_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="B2" type="continuous">
+  <origin xyz="1.1e-05 0.015897 -0.028202" rpy="0 0 0"/>
+  <parent link="arm_b_1_1"/>
+  <child link="arm_b_2_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="C0" type="continuous">
+  <origin xyz="-0.026975 0.056276 0.009495" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="arm_c_0_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="C1" type="continuous">
+  <origin xyz="-0.0428 0.01585 -0.009712" rpy="0 0 0"/>
+  <parent link="arm_c_0_1"/>
+  <child link="arm_c_1_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="C2" type="continuous">
+  <origin xyz="1e-05 -0.015897 0.028202" rpy="0 0 0"/>
+  <parent link="arm_c_1_1"/>
+  <child link="arm_c_2_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="D0" type="continuous">
+  <origin xyz="-0.026975 -0.056276 0.009495" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="arm_d_0_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="D1" type="continuous">
+  <origin xyz="-0.0428 -0.01585 -0.009712" rpy="0 0 0"/>
+  <parent link="arm_d_0_1"/>
+  <child link="arm_d_1_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="D2" type="continuous">
+  <origin xyz="1e-05 0.015897 0.028202" rpy="0 0 0"/>
+  <parent link="arm_d_1_1"/>
+  <child link="arm_d_2_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+</robot>
